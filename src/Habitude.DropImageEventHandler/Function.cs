@@ -9,7 +9,7 @@ using Amazon.S3;
 using Amazon.S3.Util;
 
 using Habitude.Framework;
-//using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace Habitude.DropImageEventHandler
@@ -18,8 +18,8 @@ namespace Habitude.DropImageEventHandler
   {
     IAmazonS3 S3Client { get; set; }
 
-    //public static readonly IServiceProvider Container = new ContainerBuilder().Build();
-    //private IDropImageEventProcessor _processor;
+    public static readonly IServiceProvider Container = new ContainerBuilder().Build();
+    private IDropImageEventProcessor _processor;
 
     /// <summary>
     /// Default constructor. This constructor is used by Lambda to construct the instance. When invoked in a Lambda environment
@@ -31,8 +31,8 @@ namespace Habitude.DropImageEventHandler
       S3Client = new AmazonS3Client();
       LogMessageCollector.Append("Function(): Created S3Client");
 
-      //_processor = Container.GetService<IDropImageEventProcessor>();
-      //LogMessageCollector.Append("Function(): Resolving IDropImageEventProcessor from DI");
+      _processor = Container.GetService<IDropImageEventProcessor>();
+      LogMessageCollector.Append("Function(): Resolving IDropImageEventProcessor from DI");
     }
 
     /// <summary>
@@ -44,8 +44,8 @@ namespace Habitude.DropImageEventHandler
       this.S3Client = s3Client;
       LogMessageCollector.Append("Function(IAmazonS3): using injected S3Client");
 
-      //_processor = Container.GetService<IDropImageEventProcessor>();
-      //LogMessageCollector.Append("Function(IAmazonS3): Resolving IDropImageEventProcessor from DI");
+      _processor = Container.GetService<IDropImageEventProcessor>();
+      LogMessageCollector.Append("Function(IAmazonS3): Resolving IDropImageEventProcessor from DI");
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ namespace Habitude.DropImageEventHandler
       {
         var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
 
-        //_processor.Process();
+        _processor.Process();
 
         var result = LogMessageCollector.Flush();
         return response.Headers.ContentType;
