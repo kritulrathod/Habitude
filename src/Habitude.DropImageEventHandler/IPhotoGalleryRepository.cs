@@ -6,5 +6,6 @@ namespace Habitude.DropImageEventHandler
 {
   public interface IPhotoGalleryRepository
   {
+    void foo();
   }
 }
