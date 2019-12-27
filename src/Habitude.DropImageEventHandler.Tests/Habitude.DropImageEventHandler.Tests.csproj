@@ -14,5 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Habitude.DropImageEventHandler\Habitude.DropImageEventHandler.csproj" />
+    <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.csproj" />
+    <ProjectReference Include="..\Habitude.Infrastructure\Habitude.Infrastructure.csproj" />
   </ItemGroup>
 </Project>
