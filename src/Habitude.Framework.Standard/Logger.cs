@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Habitude.Framework
 {
-  public class Logger
+  public static class Logger
   {
     private static Logger _logger;
     private static StringBuilder _builder;
