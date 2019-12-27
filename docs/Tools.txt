@@ -1,0 +1,5 @@
+
+Microsoft.Extensions.DependencyInjection
+Automapper
+Moq
+
