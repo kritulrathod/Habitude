@@ -5,11 +5,11 @@ using System.Text;
 using Amazon.S3;
 using Habitude.Framework;
 using Habitude.Infrastructure.AWS.S3;
-using  Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Habitude.DropImageEventHandler
+namespace Habitude.DropImageEventHandler.Tests
 {
-  public class ContainerBuilder
+  public class MockContainerBuilder
   {
     public IServiceProvider Build()
     {
@@ -22,12 +22,28 @@ namespace Habitude.DropImageEventHandler
       container.AddSingleton<IS3Client, S3Client>();
 
       //Habitude.Framework
-      container.AddSingleton<IPhotoGalleryRepository, PhotoGalleryRepository>();
+      container.AddSingleton<IPhotoGalleryRepository, MockRepo>();
 
       //Habitude.DropImageEventHandler
-      container.AddSingleton<IDropImageEventProcessor, DropImageEventProcessor>();
+      container.AddSingleton<IDropImageEventProcessor, MockProcessor>();
 
       return container.BuildServiceProvider();
     }
   }
+
+  public class MockRepo : IPhotoGalleryRepository
+  {
+    public void GetItem()
+    {
+      throw new NotImplementedException();
+    }
+  }
+  public class MockProcessor : IDropImageEventProcessor
+  {
+    public void Process()
+    {
+      throw new NotImplementedException();
+    }
+  }
+
 }

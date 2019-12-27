@@ -6,8 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
-using Amazon.S3;
-using Amazon.S3.Util;
+//using Amazon.S3;
+//using Amazon.S3.Util;
 
 using Habitude.Framework;
 
@@ -16,33 +16,20 @@ namespace Habitude.DropImageEventHandler
 {
   public class Function
   {
-    IAmazonS3 S3Client { get; set; }
-
-    public static readonly IServiceProvider Container = new ContainerBuilder().Build();
+    public readonly IServiceProvider _container;
     private IDropImageEventProcessor _processor;
 
-    /// <summary>
-    /// Default constructor. This constructor is used by Lambda to construct the instance. When invoked in a Lambda environment
-    /// the AWS credentials will come from the IAM role associated with the function and the AWS region will be set to the
-    /// region the Lambda function is executed in.
-    /// </summary>
     public Function()
     {
-      S3Client = new AmazonS3Client();
-
-      _processor = Container.GetService<IDropImageEventProcessor>();
+      _container = new ContainerBuilder().Build();
+      _processor = _container.GetService<IDropImageEventProcessor>();
     }
 
-    /// <summary>
-    /// Constructs an instance with a preconfigured S3 client. This can be used for testing the outside of the Lambda environment.
-    /// </summary>
-    /// <param name="s3Client"></param>
-    public Function(IAmazonS3 s3Client)
+    //
+    public Function(IServiceProvider container)
     {
-
-      this.S3Client = s3Client;
-
-      _processor = Container.GetService<IDropImageEventProcessor>();
+      _container = container;
+      _processor = _container.GetService<IDropImageEventProcessor>();
     }
 
     /// <summary>
@@ -52,21 +39,17 @@ namespace Habitude.DropImageEventHandler
     /// <param name="evnt"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public async Task<string> FunctionHandler(S3Event evnt, ILambdaContext context)
+    public async void FunctionHandler(S3Event evnt, ILambdaContext context)
     {
       var s3Event = evnt.Records?[0].S3;
       if (s3Event == null)
       {
-        return null;
+        throw new ArgumentNullException("S3Event");
       }
 
       try
       {
-        var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
-
         _processor.Process();
-
-        return response.Headers.ContentType;
       }
       catch (Exception e)
       {
