@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 docs", "02 docs", "{A364
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "architecture", "architecture", "{680439E5-D113-42E9-9A84-647CB851FC96}"
 	ProjectSection(SolutionItems) = preProject
+		docs\architecture\AWS Dependency Diagram.png = docs\architecture\AWS Dependency Diagram.png
 		docs\architecture\C4 Component Diagram.drawio = docs\architecture\C4 Component Diagram.drawio
 		docs\architecture\ProjectDependencyGraph.argr = docs\architecture\ProjectDependencyGraph.argr
 	EndProjectSection
