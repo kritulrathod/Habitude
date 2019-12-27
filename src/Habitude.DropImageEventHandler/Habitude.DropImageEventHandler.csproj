@@ -13,5 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.csproj" />
+    <ProjectReference Include="..\Habitude.Infrastructure\Habitude.Infrastructure.csproj" />
   </ItemGroup>
 </Project>
