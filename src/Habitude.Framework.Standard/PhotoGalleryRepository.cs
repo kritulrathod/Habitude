@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Habitude.Framework;
+﻿using Habitude.Framework;
 
-namespace Habitude.DropImageEventHandler
+namespace Habitude.Framework
 {
   public class PhotoGalleryRepository : IPhotoGalleryRepository
   {
