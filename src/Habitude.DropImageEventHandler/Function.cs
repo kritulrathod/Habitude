@@ -28,13 +28,9 @@ namespace Habitude.DropImageEventHandler
     /// </summary>
     public Function()
     {
-      Logger.Append("START: Executing Function()");
-
       S3Client = new AmazonS3Client();
-      Logger.Append("Function(): Created S3Client");
 
       _processor = Container.GetService<IDropImageEventProcessor>();
-      Logger.Append("Function(): Resolving IDropImageEventProcessor from DI");
     }
 
     /// <summary>
@@ -43,13 +39,10 @@ namespace Habitude.DropImageEventHandler
     /// <param name="s3Client"></param>
     public Function(IAmazonS3 s3Client)
     {
-      Logger.Append("START: Executing Function(IAmazonS3)");
 
       this.S3Client = s3Client;
-      Logger.Append("Function(IAmazonS3): using injected S3Client");
 
       _processor = Container.GetService<IDropImageEventProcessor>();
-      Logger.Append("Function(IAmazonS3): Resolving IDropImageEventProcessor from DI");
     }
 
     /// <summary>
@@ -61,8 +54,6 @@ namespace Habitude.DropImageEventHandler
     /// <returns></returns>
     public async Task<string> FunctionHandler(S3Event evnt, ILambdaContext context)
     {
-      Logger.Append("Executing:  FunctionHandler(S3Event, ILambdaContext)");
-
       var s3Event = evnt.Records?[0].S3;
       if (s3Event == null)
       {
@@ -75,8 +66,6 @@ namespace Habitude.DropImageEventHandler
 
         _processor.Process();
 
-        Logger.Append("COMPLETED: FunctionHandler()");
-        var result = Logger.Flush();
         return response.Headers.ContentType;
       }
       catch (Exception e)

@@ -6,7 +6,6 @@ namespace Habitude.Framework
   {
     public void GetItem()
     {
-      Logger.Append("Executing: PhotoGalleryRepository.GetItem()");
     }
   }
 }

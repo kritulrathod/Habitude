@@ -12,13 +12,11 @@ namespace Habitude.DropImageEventHandler
     public DropImageEventProcessor(IPhotoGalleryRepository photoGalleryRepository)
     {
       _photoGalleryRepository = photoGalleryRepository;
-      Logger.Append("Storing reference to injected PhotoGallery Repository");
     }
 
     public void Process()
     {
       _photoGalleryRepository.GetItem();
-      Logger.Append("Executing: DropImageEventProcessor.Process()");
     }
   }
 }

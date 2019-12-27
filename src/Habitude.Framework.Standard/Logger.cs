@@ -11,16 +11,6 @@ namespace Habitude.Framework
     {
       _builder = new StringBuilder();
     }
-
-    public static void Append(string message)
-    {
-      _builder.AppendLine(message);
-    }
-
-    public static string Flush()
-    {
-      return _builder.ToString();
-    }
   }
 }
 
