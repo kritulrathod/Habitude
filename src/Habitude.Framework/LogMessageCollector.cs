@@ -4,22 +4,14 @@ using System.Text;
 
 namespace Habitude.Framework
 {
-  public class LogMessageCollector
+  public class Logger
   {
-    private static LogMessageCollector logMessage;
+    private static Logger _logger;
     private static StringBuilder _builder;
 
-    static LogMessageCollector()
+    static Logger()
     {
       _builder = new StringBuilder();
-    }
-    public static LogMessageCollector Instance
-    {
-      get
-      {
-        if (logMessage != null) logMessage = new LogMessageCollector();
-        return logMessage;
-      }
     }
 
     public static void Append(string message)

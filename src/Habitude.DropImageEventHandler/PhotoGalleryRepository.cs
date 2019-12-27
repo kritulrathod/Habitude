@@ -7,10 +7,9 @@ namespace Habitude.DropImageEventHandler
 {
   public class PhotoGalleryRepository : IPhotoGalleryRepository
   {
-    public void foo()
+    public void GetItem()
     {
-      LogMessageCollector.Append("Executing: PhotoGalleryRepository.foo()");
-
+      Logger.Append("Executing: PhotoGalleryRepository.GetItem()");
     }
   }
 }

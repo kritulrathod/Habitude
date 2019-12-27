@@ -5,11 +5,6 @@ using Habitude.Framework;
 
 namespace Habitude.DropImageEventHandler
 {
-  public interface IDropImageEventProcessor
-  {
-    void Process();
-  }
-
   public class DropImageEventProcessor : IDropImageEventProcessor
   {
     private readonly IPhotoGalleryRepository _photoGalleryRepository;
@@ -17,13 +12,13 @@ namespace Habitude.DropImageEventHandler
     public DropImageEventProcessor(IPhotoGalleryRepository photoGalleryRepository)
     {
       _photoGalleryRepository = photoGalleryRepository;
-      LogMessageCollector.Append("Storing reference to injected PhotoGallery Repository");
+      Logger.Append("Storing reference to injected PhotoGallery Repository");
     }
 
     public void Process()
     {
-      _photoGalleryRepository.foo();
-      LogMessageCollector.Append("Executing: DropImageEventProcessor.Process()");
+      _photoGalleryRepository.GetItem();
+      Logger.Append("Executing: DropImageEventProcessor.Process()");
     }
   }
 }

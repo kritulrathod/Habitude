@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
@@ -9,7 +10,6 @@ using Amazon.S3;
 using Amazon.S3.Util;
 
 using Habitude.Framework;
-using Microsoft.Extensions.DependencyInjection;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace Habitude.DropImageEventHandler
@@ -28,11 +28,13 @@ namespace Habitude.DropImageEventHandler
     /// </summary>
     public Function()
     {
+      Logger.Append("START: Executing Function()");
+
       S3Client = new AmazonS3Client();
-      LogMessageCollector.Append("Function(): Created S3Client");
+      Logger.Append("Function(): Created S3Client");
 
       _processor = Container.GetService<IDropImageEventProcessor>();
-      LogMessageCollector.Append("Function(): Resolving IDropImageEventProcessor from DI");
+      Logger.Append("Function(): Resolving IDropImageEventProcessor from DI");
     }
 
     /// <summary>
@@ -41,11 +43,13 @@ namespace Habitude.DropImageEventHandler
     /// <param name="s3Client"></param>
     public Function(IAmazonS3 s3Client)
     {
+      Logger.Append("START: Executing Function(IAmazonS3)");
+
       this.S3Client = s3Client;
-      LogMessageCollector.Append("Function(IAmazonS3): using injected S3Client");
+      Logger.Append("Function(IAmazonS3): using injected S3Client");
 
       _processor = Container.GetService<IDropImageEventProcessor>();
-      LogMessageCollector.Append("Function(IAmazonS3): Resolving IDropImageEventProcessor from DI");
+      Logger.Append("Function(IAmazonS3): Resolving IDropImageEventProcessor from DI");
     }
 
     /// <summary>
@@ -57,6 +61,8 @@ namespace Habitude.DropImageEventHandler
     /// <returns></returns>
     public async Task<string> FunctionHandler(S3Event evnt, ILambdaContext context)
     {
+      Logger.Append("Executing:  FunctionHandler(S3Event, ILambdaContext)");
+
       var s3Event = evnt.Records?[0].S3;
       if (s3Event == null)
       {
@@ -69,7 +75,8 @@ namespace Habitude.DropImageEventHandler
 
         _processor.Process();
 
-        var result = LogMessageCollector.Flush();
+        Logger.Append("COMPLETED: FunctionHandler()");
+        var result = Logger.Flush();
         return response.Headers.ContentType;
       }
       catch (Exception e)

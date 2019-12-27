@@ -25,9 +25,10 @@ namespace Habitude
   {
     public MainPage()
     {
+      Logger.Append("START: Executing UWP MainPage()");
       this.InitializeComponent();
-      LogMessageCollector.Append("Message from UWP");
-      var str = LogMessageCollector.Flush();
+      Logger.Append("COMPLETED: Executing UWP MainPage()");
+      var str = Logger.Flush();
     }
   }
 }
