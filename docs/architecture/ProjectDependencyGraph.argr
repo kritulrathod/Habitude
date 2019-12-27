@@ -1,9 +1,14 @@
 <ArchitectureGraph>
-  <Module Identifier="6ACF7521-3906-4499-AFD8-DCDF72350A93" Name="Habitude.DropImageEventHandler" />
   <Module Identifier="867A2B4B-2D0A-4FBF-A170-452D02E23979" Name="Habitude.Framework" />
+  <Module Identifier="0FC065C3-7FFC-4CBF-B0AF-ACCA3DC6135B" Name="Habitude.Framework.Standard" />
+  <Module Identifier="8BAC5F77-BAB0-43FB-AACD-8A4C01C5D53A" Name="Habitude.Framework.Core" />
   <Module Identifier="19D1D8FD-4969-4388-BE1A-F9F947AE3538" Name="Habitude" />
+  <Module Identifier="6ACF7521-3906-4499-AFD8-DCDF72350A93" Name="Habitude.DropImageEventHandler" />
   <Module Identifier="963D9410-B567-468B-8E77-59A80DF8A519" Name="Habitude.Framework.Tests" />
   <Module Identifier="C9F9A219-C0B5-4574-85F0-C71D08256B61" Name="Habitude.DropImageEventHandler.Tests" />
+  <Reference Identifier="19D1D8FD-4969-4388-BE1A-F9F947AE3538/r:Habitude.Framework.Standard" SourceId="19D1D8FD-4969-4388-BE1A-F9F947AE3538" Name="Habitude.Framework.Standard" TargetId="0FC065C3-7FFC-4CBF-B0AF-ACCA3DC6135B" />
+  <Reference Identifier="6ACF7521-3906-4499-AFD8-DCDF72350A93/r:Habitude.Framework.Core" SourceId="6ACF7521-3906-4499-AFD8-DCDF72350A93" Name="Habitude.Framework.Core" TargetId="8BAC5F77-BAB0-43FB-AACD-8A4C01C5D53A" />
   <Reference Identifier="963D9410-B567-468B-8E77-59A80DF8A519/r:Habitude.Framework" SourceId="963D9410-B567-468B-8E77-59A80DF8A519" Name="Habitude.Framework" TargetId="867A2B4B-2D0A-4FBF-A170-452D02E23979" />
+  <Reference Identifier="C9F9A219-C0B5-4574-85F0-C71D08256B61/r:Habitude.Framework.Core" SourceId="C9F9A219-C0B5-4574-85F0-C71D08256B61" Name="Habitude.Framework.Core" TargetId="8BAC5F77-BAB0-43FB-AACD-8A4C01C5D53A" />
   <Reference Identifier="C9F9A219-C0B5-4574-85F0-C71D08256B61/r:Habitude.DropImageEventHandler" SourceId="C9F9A219-C0B5-4574-85F0-C71D08256B61" Name="Habitude.DropImageEventHandler" TargetId="6ACF7521-3906-4499-AFD8-DCDF72350A93" />
 </ArchitectureGraph>
