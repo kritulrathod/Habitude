@@ -12,6 +12,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Habitude.Framework.Core\Habitude.Framework.Core.csproj" />
+    <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.Standard.csproj" />
   </ItemGroup>
 </Project>
