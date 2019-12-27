@@ -159,9 +159,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.Standard.csproj">
+    <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.csproj">
       <Project>{0fc065c3-7ffc-4cbf-b0af-acca3dc6135b}</Project>
-      <Name>Habitude.Framework.Standard</Name>
+      <Name>Habitude.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

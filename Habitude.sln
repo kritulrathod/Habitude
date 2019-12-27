@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.DropImageEventHand
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.DropImageEventHandler.Tests", "src\Habitude.DropImageEventHandler.Tests\Habitude.DropImageEventHandler.Tests.csproj", "{C9F9A219-C0B5-4574-85F0-C71D08256B61}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework.Standard", "src\Habitude.Framework.Standard\Habitude.Framework.Standard.csproj", "{0FC065C3-7FFC-4CBF-B0AF-ACCA3DC6135B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework", "src\Habitude.Framework.Standard\Habitude.Framework.csproj", "{0FC065C3-7FFC-4CBF-B0AF-ACCA3DC6135B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{37D5B97C-21FD-4412-A3DD-EB49FA941DE9}"
 EndProject

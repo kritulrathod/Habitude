@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace Habitude.Framework
 {
-  public static class Logger
+  public class Logger
   {
     private static Logger _logger;
     private static StringBuilder _builder;

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.Standard.csproj" />
+    <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.csproj" />
   </ItemGroup>
 
 </Project>
