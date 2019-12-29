@@ -30,20 +30,4 @@ namespace Habitude.DropImageEventHandler.Tests
       return container.BuildServiceProvider();
     }
   }
-
-  public class MockRepo : IPhotoGalleryRepository
-  {
-    public void GetItem()
-    {
-      throw new NotImplementedException();
-    }
-  }
-  public class MockProcessor : IDropImageEventProcessor
-  {
-    public void Process()
-    {
-      throw new NotImplementedException();
-    }
-  }
-
 }
