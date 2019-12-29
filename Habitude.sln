@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Infrastructure", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9980170D-B698-4179-98AB-8CFF54F13955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habitude.Infrastructure.Tests", "src\Habitude.Infrastructure.Tests\Habitude.Infrastructure.Tests.csproj", "{F715B95A-B127-45DB-A472-174C8F447F09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Infrastructure.Tests", "src\Habitude.Infrastructure.Tests\Habitude.Infrastructure.Tests.csproj", "{F715B95A-B127-45DB-A472-174C8F447F09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,7 +237,7 @@ Global
 		{C1BA9EB9-6068-4022-A15C-B46DCD8BACC2} = {A3642F79-A9B2-4A45-9355-2FBD11F881B5}
 		{685B784B-195A-4C11-B448-0D2CF7B63F89} = {37D5B97C-21FD-4412-A3DD-EB49FA941DE9}
 		{9980170D-B698-4179-98AB-8CFF54F13955} = {15E2A553-C563-43AD-A22A-EED5A16E51D8}
-		{F715B95A-B127-45DB-A472-174C8F447F09} = {37D5B97C-21FD-4412-A3DD-EB49FA941DE9}
+		{F715B95A-B127-45DB-A472-174C8F447F09} = {9980170D-B698-4179-98AB-8CFF54F13955}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECC6515E-5F2F-4B24-BDD1-07346616045E}
