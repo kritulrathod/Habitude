@@ -9,12 +9,8 @@ using Amazon.Lambda;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
 using Amazon.Lambda.S3Events;
-
-using Amazon;
-using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
-
 using Habitude.DropImageEventHandler;
 
 namespace Habitude.DropImageEventHandler.Tests
@@ -22,29 +18,32 @@ namespace Habitude.DropImageEventHandler.Tests
   [TestClass]
   public class FunctionTest
   {
-    private IAmazonS3 _s3Client;
-    private string _bucketName;
+    private SetupTestS3Bucket _setupTestS3Bucket;
     private IServiceProvider _container;
+
 
     #region Test-Initialize-Cleanup
 
     [TestInitialize]
     public async Task Setup()
     {
-      _s3Client = new AmazonS3Client(RegionEndpoint.USEast1);
-      _container = new MockContainerBuilder().Build();
-      
-      _bucketName = "test-lambda-Habitude.DropImageEventHandler-".ToLower() + DateTime.Now.Ticks;
+      // Setup DI Container
+      //Integration
+      _container = new ContainerBuilder().Build();
 
-      // Create a bucket an object to setup a test data.
-      await _s3Client.PutBucketAsync(_bucketName);
+      //Unit Test
+      //_container = new MockContainerBuilder().Build();
+
+      // Setup S3Bucket
+      _setupTestS3Bucket = new SetupTestS3Bucket();
+      await _setupTestS3Bucket.Setup();
+
     }
 
     [TestCleanup]
     public async Task Cleanup()
     {
-      // Clean up the test data
-      await AmazonS3Util.DeleteS3BucketWithObjectsAsync(_s3Client, _bucketName);
+      await _setupTestS3Bucket.Cleanup();
     }
 
     #endregion
@@ -52,7 +51,7 @@ namespace Habitude.DropImageEventHandler.Tests
     [TestMethod]
     public async Task TestS3EventLambdaFunction()
     {
-      var key = await ArrangeTestFile();
+      var key = await _setupTestS3Bucket.ArrangeTestFile("text.txt");
 
       // Setup the S3 event object that S3 notifications would create with the fields used by the Lambda function.
       var s3Event = new S3Event
@@ -63,7 +62,7 @@ namespace Habitude.DropImageEventHandler.Tests
                       {
                         S3 = new S3EventNotification.S3Entity
                         {
-                          Bucket = new S3EventNotification.S3BucketEntity { Name = _bucketName },
+                          Bucket = new S3EventNotification.S3BucketEntity { Name = _setupTestS3Bucket.BucketName },
                           Object = new S3EventNotification.S3ObjectEntity { Key = key }
                         }
                       }
@@ -77,28 +76,5 @@ namespace Habitude.DropImageEventHandler.Tests
       //Assert.Equal("text/plain", contentType);
     }
 
-    #region Private-Helpers
-
-    private async Task<string> ArrangeTestFile()
-    {
-      var key = "text.txt";
-      try
-      {
-        await _s3Client.PutObjectAsync(new PutObjectRequest
-        {
-          BucketName = _bucketName,
-          Key = key,
-          ContentBody = "sample data"
-        });
-
-        return key;
-      }
-      catch (Exception e)
-      {
-        throw new Exception("Error setting up Test S3 Bucket", e);
-      }
-    }
-
-    #endregion
   }
 }
