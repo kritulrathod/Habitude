@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Habitude.Framework;
 using Habitude.Infrastructure.AWS.S3;
+using Habitude.Infrastructure.Interface;
 
 namespace Habitude.DropImageEventHandler
 {
@@ -17,13 +19,13 @@ namespace Habitude.DropImageEventHandler
       _photoGalleryRepository = photoGalleryRepository;
     }
 
-    public async void GetObject()
-    {
-    }
+    //public async void GetObject()
+    //{
+    //}
 
-    public void Process()
+    public async Task Process()
     {
-      _photoGalleryRepository.GetItem();
+      await _photoGalleryRepository.GetAllItems();
     }
   }
 }

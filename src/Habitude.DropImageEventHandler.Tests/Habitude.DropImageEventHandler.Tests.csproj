@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.1.0" />
@@ -13,6 +13,7 @@
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\tests\Habitude.Test.Common\Habitude.Test.Common.csproj" />
     <ProjectReference Include="..\Habitude.DropImageEventHandler\Habitude.DropImageEventHandler.csproj" />
     <ProjectReference Include="..\Habitude.Framework.Standard\Habitude.Framework.csproj" />
     <ProjectReference Include="..\Habitude.Infrastructure\Habitude.Infrastructure.csproj" />

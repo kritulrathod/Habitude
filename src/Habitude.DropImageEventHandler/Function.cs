@@ -10,6 +10,7 @@ using Amazon.Lambda.S3Events;
 //using Amazon.S3.Util;
 
 using Habitude.Framework;
+using Habitude.Infrastructure.Interface;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace Habitude.DropImageEventHandler
@@ -49,7 +50,7 @@ namespace Habitude.DropImageEventHandler
 
       try
       {
-        _processor.Process();
+        await _processor.Process();
       }
       catch (Exception e)
       {

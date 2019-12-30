@@ -12,6 +12,7 @@ using Amazon.Lambda.S3Events;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using Habitude.DropImageEventHandler;
+using Habitude.Test.Common;
 
 namespace Habitude.DropImageEventHandler.Tests
 {
