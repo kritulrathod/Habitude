@@ -23,7 +23,12 @@ namespace Habitude.Framework.IntegrationTestss
       var container = new ServiceCollection();
 
       //Amazon.DynamoDB
-      container.AddTransient<IAmazonDynamoDB>(s => new AmazonDynamoDBClient(RegionEndpoint.USEast1));
+      //container.AddTransient<IAmazonDynamoDB>(s => new AmazonDynamoDBClient(RegionEndpoint.USEast1));
+      container.AddTransient<IAmazonDynamoDB>(s =>
+        new AmazonDynamoDBClient(new AmazonDynamoDBConfig
+        {
+          ServiceURL = "http://localhost:8000"
+        }));
 
       //Amazon.S3
       container.AddTransient<IAmazonS3, AmazonS3Client>();

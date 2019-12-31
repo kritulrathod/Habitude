@@ -12,11 +12,11 @@ namespace Habitude.Test.Common
 {
   public class SetupDynamoDb
   {
-    private static readonly IAmazonDynamoDB DynamoDBClient = new AmazonDynamoDBClient(RegionEndpoint.USEast1); //TODO: Test only
-    //private static readonly IAmazonDynamoDB DynamoDBClient = new AmazonDynamoDBClient(new AmazonDynamoDBConfig
-    //{
-    //  ServiceURL = "http://localhost:8000"
-    //});
+    //private static readonly IAmazonDynamoDB DynamoDBClient = new AmazonDynamoDBClient(RegionEndpoint.USEast1); //TODO: Test only
+    private static readonly IAmazonDynamoDB DynamoDBClient = new AmazonDynamoDBClient(new AmazonDynamoDBConfig
+    {
+      ServiceURL = "http://localhost:8000"
+    });
 
     public async Task CreateTable()
     {
@@ -34,7 +34,7 @@ namespace Habitude.Test.Common
             AttributeName = "FileName",
             AttributeType = "S"
           }
-          //,
+          //, No Sort / Range Key 
           //new AttributeDefinition
           //{
           //  AttributeName = "Description",
@@ -48,7 +48,7 @@ namespace Habitude.Test.Common
             AttributeName = "Id",
             KeyType = "HASH"
           }
-          //,
+          //, No Sort / Range Key 
           //new KeySchemaElement
           //{
           //    AttributeName = "Description",
@@ -105,20 +105,6 @@ namespace Habitude.Test.Common
       await DynamoDBClient.DeleteTableAsync(new DeleteTableRequest() { TableName = tableName });
       await WaitUntilTableNotFound(tableName);
     }
-
-    /*
-     DynamoDB dynamoDB = new DynamoDB(client);  
-      Table table = dynamoDB.getTable("Products");  
-      try { 
-         System.out.println("Performing table delete, wait..."); 
-         table.delete(); 
-         table.waitForDelete(); 
-         System.out.print("Table successfully deleted.");  
-      } catch (Exception e) { 
-         System.err.println("Cannot perform table delete: "); 
-         System.err.println(e.getMessage()); 
-      } 
-     */
 
     public async Task CreateTestEntry()
     {
