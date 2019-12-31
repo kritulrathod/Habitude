@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Habitude.Framework.IntegrationTestss;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -17,11 +18,15 @@ namespace Habitude.Framework.Tests
     [TestInitialize]
     public async Task Setup()
     {
+      _container = new IntegrationTestContainerBuilder().Build();
       try
       {
-        _galleryRepository = MockPhotoGalleryRepositoryBuilder.GetBuilder()
-          .WithGetAllMethod()
-          .Build().Object;
+        _galleryRepository = _container.GetService<IPhotoGalleryRepository>();
+
+        _setupDynamoDb = new SetupDynamoDb();
+        await _setupDynamoDb.CreateTable();
+
+        await _setupDynamoDb.CreateTestEntry();
       }
       catch (Exception e)
       {
@@ -33,6 +38,7 @@ namespace Habitude.Framework.Tests
     [TestCleanup]
     public async Task Cleanup()
     {
+      await _setupDynamoDb.DeleteTable();
     }
 
     [TestMethod]
