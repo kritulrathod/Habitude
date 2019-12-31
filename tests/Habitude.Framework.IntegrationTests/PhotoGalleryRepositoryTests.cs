@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Habitude.Framework.IntegrationTestss;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,9 +7,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Extensions.DependencyInjection;
 using Habitude.Test.Common;
 
-namespace Habitude.Framework.Tests
+namespace Habitude.Framework.IntegrationTests
 {
   [TestClass]
+  [TestCategory("IntegrationTests")]
   public class PhotoGalleryRepositoryTests
   {
     private IServiceProvider _container;
@@ -45,7 +47,14 @@ namespace Habitude.Framework.Tests
     public async Task GetAllItemsTest()
     {
       var result = await _galleryRepository.GetAllItems();
+
+      var PhotoGalleryObject = result?.FirstOrDefault();
+
       Assert.IsNotNull(result);
+
+      Assert.AreEqual(1, PhotoGalleryObject.Id);
+      Assert.AreEqual("TestFile.jpg", PhotoGalleryObject.FileName);
+      Assert.AreEqual("Test Description", PhotoGalleryObject.Description);
     }
   }
 }

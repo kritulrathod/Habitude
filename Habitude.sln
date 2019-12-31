@@ -38,11 +38,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habitude", "src\Habitude.Application\Habitude.csproj", "{19D1D8FD-4969-4388-BE1A-F9F947AE3538}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework.Tests", "src\Habitude.Framework.Tests\Habitude.Framework.Tests.csproj", "{963D9410-B567-468B-8E77-59A80DF8A519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework.Tests", "tests\Habitude.Framework.Tests\Habitude.Framework.Tests.csproj", "{963D9410-B567-468B-8E77-59A80DF8A519}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.DropImageEventHandler", "src\Habitude.DropImageEventHandler\Habitude.DropImageEventHandler.csproj", "{6ACF7521-3906-4499-AFD8-DCDF72350A93}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.DropImageEventHandler.Tests", "src\Habitude.DropImageEventHandler.Tests\Habitude.DropImageEventHandler.Tests.csproj", "{C9F9A219-C0B5-4574-85F0-C71D08256B61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.DropImageEventHandler.Tests", "tests\Habitude.DropImageEventHandler.Tests\Habitude.DropImageEventHandler.Tests.csproj", "{C9F9A219-C0B5-4574-85F0-C71D08256B61}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework", "src\Habitude.Framework.Standard\Habitude.Framework.csproj", "{0FC065C3-7FFC-4CBF-B0AF-ACCA3DC6135B}"
 EndProject
@@ -57,7 +57,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Infrastructure", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9980170D-B698-4179-98AB-8CFF54F13955}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Infrastructure.Tests", "src\Habitude.Infrastructure.Tests\Habitude.Infrastructure.Tests.csproj", "{F715B95A-B127-45DB-A472-174C8F447F09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Infrastructure.Tests", "tests\Habitude.Infrastructure.Tests\Habitude.Infrastructure.Tests.csproj", "{F715B95A-B127-45DB-A472-174C8F447F09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Test.Common", "tests\Habitude.Test.Common\Habitude.Test.Common.csproj", "{F52028DF-8DA0-4A28-B2E0-599D8E1767E0}"
 EndProject

@@ -25,8 +25,6 @@ namespace Habitude.Framework.IntegrationTestss
       //Amazon.DynamoDB
       container.AddTransient<IAmazonDynamoDB>(s => new AmazonDynamoDBClient(RegionEndpoint.USEast1));
 
-      //container.AddScoped<IAmazonDynamoDB, AmazonDynamoDBClient>();
-
       //Amazon.S3
       container.AddTransient<IAmazonS3, AmazonS3Client>();
 
@@ -37,9 +35,7 @@ namespace Habitude.Framework.IntegrationTestss
       container.AddTransient<IS3Client, S3Client>();
 
       //Habitude.Framework
-      container.AddTransient<IPhotoGalleryRepository>(s => MockPhotoGalleryRepositoryBuilder.GetBuilder()
-        .WithGetAllMethod()
-        .Build().Object);
+      container.AddTransient<IPhotoGalleryRepository, PhotoGalleryRepository>();
 
       return container.BuildServiceProvider();
     }

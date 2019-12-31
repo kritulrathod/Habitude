@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Habitude.Test.Common\Habitude.Test.Common.csproj" />
     <ProjectReference Include="..\..\src\Habitude.Framework.Standard\Habitude.Framework.csproj" />
     <ProjectReference Include="..\..\src\Habitude.Infrastructure\Habitude.Infrastructure.csproj" />
-    <ProjectReference Include="..\Habitude.Test.Common\Habitude.Test.Common.csproj" />
   </ItemGroup>
 
 </Project>

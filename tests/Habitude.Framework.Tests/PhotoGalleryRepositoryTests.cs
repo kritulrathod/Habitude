@@ -8,6 +8,7 @@ using Habitude.Test.Common;
 namespace Habitude.Framework.Tests
 {
   [TestClass]
+  [TestCategory("UnitTests.Framework")]
   public class PhotoGalleryRepositoryTests
   {
     private IServiceProvider _container;

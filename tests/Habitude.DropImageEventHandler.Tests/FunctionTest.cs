@@ -17,6 +17,7 @@ using Habitude.Test.Common;
 namespace Habitude.DropImageEventHandler.Tests
 {
   [TestClass]
+  [TestCategory("UnitTests.EventHandler")]
   public class FunctionTest
   {
     private SetupTestS3Bucket _setupTestS3Bucket;
