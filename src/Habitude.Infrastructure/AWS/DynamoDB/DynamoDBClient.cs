@@ -23,8 +23,15 @@ namespace Habitude.Infrastructure.AWS.DynamoDB
       return await _context.ScanAsync<T>(new List<ScanCondition>()).GetRemainingAsync();
     }
 
+    public async Task<T> GetItem(int id)
+    {
+      //TODO: for table with only HASH key
+      return await _context.LoadAsync<T>(id);
+    }
+
     public async Task<T> GetItem(int id, string name)
     {
+      //TODO: for table with HASH and RANGE keys 
       return await _context.LoadAsync<T>(id, name);
     }
 
@@ -36,6 +43,11 @@ namespace Habitude.Infrastructure.AWS.DynamoDB
     public async Task UpdateItem(T item)
     {
       await _context.SaveAsync(item);
+    }
+
+    public async Task DeleteItem(T item)
+    {
+      await _context.DeleteAsync(item);
     }
   }
 }

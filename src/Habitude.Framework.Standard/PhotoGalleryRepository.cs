@@ -18,9 +18,29 @@ namespace Habitude.Framework
       _dynamoDbClient = dynamoDbClient;
     }
 
-    public async Task<IEnumerable<PhotoGalleryDb>> GetAllItems()
+    public async Task<IEnumerable<PhotoGalleryDb>> GetAllPhotoGalleryItems()
     {
       return await _dynamoDbClient.GetAllItems();
+    }
+
+    public async Task<PhotoGalleryDb> GetPhotoGalleryItem(int Id)
+    {
+      return await _dynamoDbClient.GetItem(Id);
+    }
+
+    public async Task AddPhotoGalleryItem(PhotoGalleryDb item)
+    {
+      await _dynamoDbClient.AddItem(item);
+    }
+
+    public async Task UpdatePhotoGalleryItem(PhotoGalleryDb request)
+    {
+      await _dynamoDbClient.UpdateItem(request);
+    }
+
+    public async Task DeletePhotoGalleryItem(PhotoGalleryDb request)
+    {
+      await _dynamoDbClient.DeleteItem(request);
     }
   }
 }

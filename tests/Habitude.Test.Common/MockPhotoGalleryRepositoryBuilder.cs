@@ -22,7 +22,7 @@ namespace Habitude.Framework.Tests
 
     public MockPhotoGalleryRepositoryBuilder WithGetAllMethod()
     {
-      _mock.Setup(m => m.GetAllItems())
+      _mock.Setup(m => m.GetAllPhotoGalleryItems())
         .ReturnsAsync(_photoGalleryDbs);
       return this;
     }

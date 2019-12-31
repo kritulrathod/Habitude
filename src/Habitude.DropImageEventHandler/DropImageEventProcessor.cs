@@ -25,7 +25,7 @@ namespace Habitude.DropImageEventHandler
 
     public async Task Process()
     {
-      await _photoGalleryRepository.GetAllItems();
+      await _photoGalleryRepository.GetAllPhotoGalleryItems();
     }
   }
 }

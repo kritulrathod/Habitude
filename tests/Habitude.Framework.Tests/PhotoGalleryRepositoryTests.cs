@@ -39,7 +39,7 @@ namespace Habitude.Framework.Tests
     [TestMethod]
     public async Task GetAllItemsTest()
     {
-      var result = await _galleryRepository.GetAllItems();
+      var result = await _galleryRepository.GetAllPhotoGalleryItems();
       Assert.IsNotNull(result);
     }
   }

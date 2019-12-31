@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Solution Items", "01 Sol
 		.gitignore = .gitignore
 		LICENSE = LICENSE
 		README.md = README.md
+		docs\Start_LocalDynamoDb.bat = docs\Start_LocalDynamoDb.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 docs", "02 docs", "{A3642F79-A9B2-4A45-9355-2FBD11F881B5}"
@@ -21,7 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "architecture", "architectur
 		docs\AWS Dependency Diagram.png = docs\AWS Dependency Diagram.png
 		docs\C4 Component Diagram.drawio = docs\C4 Component Diagram.drawio
 		docs\ProjectDependencyGraph.argr = docs\ProjectDependencyGraph.argr
+		docs\Repository Dependencies CodeMap.dgml = docs\Repository Dependencies CodeMap.dgml
 		docs\Repository Dependencies Graph.png = docs\Repository Dependencies Graph.png
+		docs\Start_LocalDynamoDb.bat = docs\Start_LocalDynamoDb.bat
+		docs\Tools.txt = docs\Tools.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lambda", "Lambda", "{CA5E984A-4AFF-48B8-A8D4-DD251F42C3FD}"
@@ -63,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Test.Common", "tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{903D1949-6581-4A58-833F-E4C4BAC2C693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habitude.Framework.IntegrationTests", "tests\Habitude.Framework.IntegrationTests\Habitude.Framework.IntegrationTests.csproj", "{1023B16C-AB5D-4D59-B3A4-F8BA60391984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework.IntegrationTests", "tests\Habitude.Framework.IntegrationTests\Habitude.Framework.IntegrationTests.csproj", "{1023B16C-AB5D-4D59-B3A4-F8BA60391984}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{C57942E3-0D9B-47E5-B9CB-2F08D3F9C1CA}"
 EndProject
