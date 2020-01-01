@@ -27,3 +27,5 @@ SharedDb:	true
 shouldDelayTransientStatuses:	false
 CorsParams:	*
 ```
+**Reference:**
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
