@@ -11,12 +11,10 @@ namespace Habitude.Framework.Tests
   [TestCategory("UnitTests.Framework")]
   public class PhotoGalleryRepositoryTests
   {
-    private IServiceProvider _container;
     private IPhotoGalleryRepository _galleryRepository;
-    private SetupDynamoDb _setupDynamoDb;
 
     [TestInitialize]
-    public async Task Setup()
+    public void Setup()
     {
       try
       {
@@ -32,7 +30,7 @@ namespace Habitude.Framework.Tests
     }
 
     [TestCleanup]
-    public async Task Cleanup()
+    public void Cleanup()
     {
     }
 

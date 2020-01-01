@@ -7,10 +7,6 @@ using Amazon.S3.Util;
 
 namespace Habitude.Infrastructure.AWS.S3
 {
-  public interface IS3Client
-  {
-  }
-
   public class S3Client : IS3Client
   {
     string bucketName { get; set; }

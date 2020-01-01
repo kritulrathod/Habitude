@@ -18,10 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 docs", "02 docs", "{A364
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "architecture", "architecture", "{680439E5-D113-42E9-9A84-647CB851FC96}"
 	ProjectSection(SolutionItems) = preProject
+		docs\Architecture Files.xlsx = docs\Architecture Files.xlsx
 		docs\AWS Dependency Diagram-DifferentTypesOfTests.png = docs\AWS Dependency Diagram-DifferentTypesOfTests.png
 		docs\AWS Dependency Diagram.png = docs\AWS Dependency Diagram.png
 		docs\C4 Component Diagram.drawio = docs\C4 Component Diagram.drawio
 		docs\ProjectDependencyGraph.argr = docs\ProjectDependencyGraph.argr
+		docs\ProjectDependencyGraph.png = docs\ProjectDependencyGraph.png
 		docs\Repository Dependencies CodeMap.dgml = docs\Repository Dependencies CodeMap.dgml
 		docs\Repository Dependencies Graph.png = docs\Repository Dependencies Graph.png
 		docs\Start_LocalDynamoDb.bat = docs\Start_LocalDynamoDb.bat
@@ -54,6 +56,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "req", "req", "{C1BA9EB9-6068-4022-A15C-B46DCD8BACC2}"
 	ProjectSection(SolutionItems) = preProject
+		docs\Architecture Files.xlsx = docs\Architecture Files.xlsx
 		docs\Tools.txt = docs\Tools.txt
 	EndProjectSection
 EndProject
@@ -70,6 +73,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Framework.IntegrationTests", "tests\Habitude.Framework.IntegrationTests\Habitude.Framework.IntegrationTests.csproj", "{1023B16C-AB5D-4D59-B3A4-F8BA60391984}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{C57942E3-0D9B-47E5-B9CB-2F08D3F9C1CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{A90B23E4-173F-40CB-9B4A-16B82A714581}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -292,10 +297,11 @@ Global
 		{685B784B-195A-4C11-B448-0D2CF7B63F89} = {37D5B97C-21FD-4412-A3DD-EB49FA941DE9}
 		{9980170D-B698-4179-98AB-8CFF54F13955} = {C57942E3-0D9B-47E5-B9CB-2F08D3F9C1CA}
 		{F715B95A-B127-45DB-A472-174C8F447F09} = {9980170D-B698-4179-98AB-8CFF54F13955}
-		{F52028DF-8DA0-4A28-B2E0-599D8E1767E0} = {2B53A2BB-3CE9-499B-BE31-D22696440C05}
+		{F52028DF-8DA0-4A28-B2E0-599D8E1767E0} = {A90B23E4-173F-40CB-9B4A-16B82A714581}
 		{903D1949-6581-4A58-833F-E4C4BAC2C693} = {15E2A553-C563-43AD-A22A-EED5A16E51D8}
 		{1023B16C-AB5D-4D59-B3A4-F8BA60391984} = {903D1949-6581-4A58-833F-E4C4BAC2C693}
 		{C57942E3-0D9B-47E5-B9CB-2F08D3F9C1CA} = {15E2A553-C563-43AD-A22A-EED5A16E51D8}
+		{A90B23E4-173F-40CB-9B4A-16B82A714581} = {15E2A553-C563-43AD-A22A-EED5A16E51D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECC6515E-5F2F-4B24-BDD1-07346616045E}
