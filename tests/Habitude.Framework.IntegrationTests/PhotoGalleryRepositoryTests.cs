@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Amazon.DynamoDBv2;
 using Habitude.Framework.IntegrationTestss;
 using Habitude.Infrastructure.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,7 +27,7 @@ namespace Habitude.Framework.IntegrationTests
       {
         _galleryRepository = _container.GetService<IPhotoGalleryRepository>();
 
-        _setupDynamoDb = new SetupDynamoDb();
+        _setupDynamoDb = new SetupDynamoDb(_container.GetService<IAmazonDynamoDB>());
         await _setupDynamoDb.CreateTable();
 
         await _setupDynamoDb.CreateTestEntry();

@@ -18,6 +18,9 @@ namespace Habitude.Framework.IntegrationTestss
 {
   public class IntegrationTestContainerBuilder
   {
+    string ServiceURLDynamoDB = "http://localhost:4569";
+    string ServiceURLS3 = "http://localhost:4572";
+
     public IServiceProvider Build()
     {
       var container = new ServiceCollection();
@@ -27,11 +30,16 @@ namespace Habitude.Framework.IntegrationTestss
       container.AddTransient<IAmazonDynamoDB>(s =>
         new AmazonDynamoDBClient(new AmazonDynamoDBConfig
         {
-          ServiceURL = "http://localhost:8000"
+          ServiceURL = ServiceURLDynamoDB
         }));
 
       //Amazon.S3
-      container.AddTransient<IAmazonS3, AmazonS3Client>();
+      //container.AddTransient<IAmazonS3, AmazonS3Client>();
+      container.AddSingleton<IAmazonS3>(s => new AmazonS3Client(new AmazonS3Config
+      {
+        ServiceURL = ServiceURLS3,
+        ForcePathStyle = true,
+      }));
 
       //Habitude.Framework.AWS.DynamoDB
       container.AddTransient<IDynamoDBClient<PhotoGalleryDb>, DynamoDBClient<PhotoGalleryDb>>();

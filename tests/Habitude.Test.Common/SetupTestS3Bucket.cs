@@ -15,51 +15,48 @@ namespace Habitude.Test.Common
     private IAmazonS3 _s3Client;
     private string _bucketName;
 
-    public string BucketName
+    public SetupTestS3Bucket(IAmazonS3 s3Client)
     {
-      get { return _bucketName; }
+      _s3Client = s3Client;
     }
-  
 
-  public async Task Setup()
-  {
-    _s3Client = new AmazonS3Client(RegionEndpoint.USEast1);
-
-    _bucketName = "test-lambda-Habitude.DropImageEventHandler-".ToLower() + DateTime.Now.Ticks;
-
-    // Create a bucket an object to setup a test data.
-    await _s3Client.PutBucketAsync(_bucketName);
-  }
-
-  public async Task Cleanup()
-  {
-    // Clean up the test data
-    await AmazonS3Util.DeleteS3BucketWithObjectsAsync(_s3Client, _bucketName);
-  }
-
-
-  #region Helper methods
-
-  public async Task<string> ArrangeTestFile(string key)
-  {
-    //var key = "text.txt";
-    try
+    public async Task Setup()
     {
-      await _s3Client.PutObjectAsync(new PutObjectRequest
+      _bucketName = "test-lambda-Habitude.DropImageEventHandler-".ToLower() + DateTime.Now.Ticks;
+
+      // Create a bucket an object to setup a test data.
+      await _s3Client.PutBucketAsync(_bucketName);
+    }
+
+    public async Task Cleanup()
+    {
+      // Clean up the test data
+      await AmazonS3Util.DeleteS3BucketWithObjectsAsync(_s3Client, _bucketName);
+    }
+
+
+    #region Helper methods
+
+    public async Task<string> ArrangeTestFile(string key)
+    {
+      //var key = "text.txt";
+      try
       {
-        BucketName = _bucketName,
-        Key = key,
-        ContentBody = "sample data"
-      });
+        await _s3Client.PutObjectAsync(new PutObjectRequest
+        {
+          BucketName = _bucketName,
+          Key = key,
+          ContentBody = "sample data"
+        });
 
-      return key;
+        return key;
+      }
+      catch (Exception e)
+      {
+        throw new Exception("Error setting up Test S3 Bucket", e);
+      }
     }
-    catch (Exception e)
-    {
-      throw new Exception("Error setting up Test S3 Bucket", e);
-    }
-  }
 
-  #endregion
+    #endregion
   }
 }

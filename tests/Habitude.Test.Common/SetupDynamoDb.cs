@@ -13,10 +13,12 @@ namespace Habitude.Test.Common
   public class SetupDynamoDb
   {
     //private static readonly IAmazonDynamoDB DynamoDBClient = new AmazonDynamoDBClient(RegionEndpoint.USEast1); //TODO: Test only
-    private static readonly IAmazonDynamoDB DynamoDBClient = new AmazonDynamoDBClient(new AmazonDynamoDBConfig
+    private readonly IAmazonDynamoDB DynamoDBClient;
+
+    public SetupDynamoDb(IAmazonDynamoDB amazonDynamoDb)
     {
-      ServiceURL = "http://localhost:8000"
-    });
+      DynamoDBClient = amazonDynamoDb;
+    }
 
     public async Task CreateTable()
     {
@@ -119,7 +121,7 @@ namespace Habitude.Test.Common
 
     }
 
-    private static async Task WaitUntilTableActive(string tableName)
+    private async Task WaitUntilTableActive(string tableName)
     {
       string status = null;
       do
@@ -138,7 +140,7 @@ namespace Habitude.Test.Common
       } while (status != "ACTIVE");
     }
 
-    private static async Task WaitUntilTableNotFound(string tableName)
+    private async Task WaitUntilTableNotFound(string tableName)
     {
       var statusList = new List<string>()
       {
@@ -161,7 +163,7 @@ namespace Habitude.Test.Common
       } while (statusList.Contains(status.ToUpper()));
     }
 
-    private static async Task<string> GetTableStatus(string tableName)
+    private async Task<string> GetTableStatus(string tableName)
     {
       var response = await DynamoDBClient.DescribeTableAsync(new DescribeTableRequest
       {
