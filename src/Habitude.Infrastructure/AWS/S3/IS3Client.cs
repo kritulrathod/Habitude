@@ -2,5 +2,6 @@
 {
   public interface IS3Client
   {
+    void GetObjectMetadataAsync(string objectKey);
   }
 }

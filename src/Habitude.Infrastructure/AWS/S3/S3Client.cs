@@ -9,20 +9,20 @@ namespace Habitude.Infrastructure.AWS.S3
 {
   public class S3Client : IS3Client
   {
-    string bucketName { get; set; }
-    IAmazonS3 amazonS3Client { get; set; }
+    string BucketName { get; set; }
+    IAmazonS3 AmazonS3Client { get; set; }
 
     public S3Client(IAmazonS3 amazonS3)
     {
-      amazonS3Client = amazonS3;
+      AmazonS3Client = amazonS3;
 
-      bucketName = "habitude-photo-frame"; 
+      BucketName = "habitude-photo-frame"; 
       // KTR: Should be injecting through options;
     }
 
     public async void GetObjectMetadataAsync(string objectKey)
     {
-      await this.amazonS3Client.GetObjectMetadataAsync(bucketName, objectKey);
+      await this.AmazonS3Client.GetObjectMetadataAsync(BucketName, objectKey);
     }
   }
 }

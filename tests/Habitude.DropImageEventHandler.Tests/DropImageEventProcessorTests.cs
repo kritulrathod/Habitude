@@ -11,6 +11,7 @@ using Moq;
 
 namespace Habitude.DropImageEventHandlerTests
 {
+  [TestCategory("UnitTests.DropImageEventHandler")]
   [TestClass]
   public class DropImageEventProcessorTests
   {
