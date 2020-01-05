@@ -6,9 +6,9 @@
 
 Tasks:
 
-- [] Handle S3 event 
-- [] Read the S3Event Key (File Name)
-- [] Create Model from S3Event Key - 
-- [] Save Model to the DB-Table 'Habitude-PhotoGallery'
+- [X] Handle S3 event 
+- [ ] Read the S3Event Key (File Name)
+- [ ] Create Model from S3Event Key - 
+- [ ] Save Model to the DB-Table 'Habitude-PhotoGallery'
 
 
