@@ -15,6 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Solution Items", "01 Sol
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 docs", "02 docs", "{A3642F79-A9B2-4A45-9355-2FBD11F881B5}"
+	ProjectSection(SolutionItems) = preProject
+		docs\ReadMe.md = docs\ReadMe.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "architecture", "architecture", "{680439E5-D113-42E9-9A84-647CB851FC96}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,7 +30,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "architecture", "architectur
 		docs\Repository Dependencies CodeMap.dgml = docs\Repository Dependencies CodeMap.dgml
 		docs\Repository Dependencies Graph.png = docs\Repository Dependencies Graph.png
 		docs\Start_LocalDynamoDb.bat = docs\Start_LocalDynamoDb.bat
-		docs\Tools.txt = docs\Tools.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lambda", "Lambda", "{CA5E984A-4AFF-48B8-A8D4-DD251F42C3FD}"
@@ -47,7 +49,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "req", "req", "{C1BA9EB9-6068-4022-A15C-B46DCD8BACC2}"
 	ProjectSection(SolutionItems) = preProject
 		docs\Architecture Files.xlsx = docs\Architecture Files.xlsx
-		docs\Tools.txt = docs\Tools.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habitude.Infrastructure", "src\Habitude.Infrastructure\Habitude.Infrastructure.csproj", "{685B784B-195A-4C11-B448-0D2CF7B63F89}"
